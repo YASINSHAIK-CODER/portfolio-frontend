@@ -1,0 +1,334 @@
+/* 
+   Shaik Yasin Portfolio Styles
+   Theme: Modern Dark Glassmorphism
+*/
+
+:root {
+    --primary-color: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.5);
+    --secondary-color: #a855f7;
+    --secondary-glow: rgba(168, 85, 247, 0.5);
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.text-light-75 { color: rgba(248, 250, 252, 0.75); }
+.text-light-50 { color: rgba(248, 250, 252, 0.5); }
+
+/* Glassmorphism Components */
+.glass {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-glass {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-glass:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-glow);
+}
+
+/* Navbar */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-muted);
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Typography & Gradients */
+.gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-primary-glow { color: #818cf8; text-shadow: 0 0 15px var(--primary-glow); }
+.text-secondary-glow { color: #c084fc; text-shadow: 0 0 15px var(--secondary-glow); }
+.text-success-glow { color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.5); }
+.text-danger-glow { color: #f87171; text-shadow: 0 0 15px rgba(248, 113, 113, 0.5); }
+
+/* Buttons */
+.btn-primary-glow {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px var(--primary-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-primary-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px var(--primary-glow);
+    color: white;
+}
+
+.btn-outline-glow {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-glow:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding-top: 80px;
+    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+}
+
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-blob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+.floating-badge {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: float 3s infinite ease-in-out;
+}
+
+.top-right { top: 10%; right: -5%; animation-delay: 0s; }
+.bottom-left { bottom: 10%; left: -5%; animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Skills */
+.skill-card {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--glass-border);
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.invert-img {
+    filter: invert(1);
+}
+
+/* Form Controls */
+.form-control-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.8rem;
+}
+
+.form-control-glass:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+    color: var(--text-light);
+}
+
+/* Badges */
+.bg-primary-glow {
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.bg-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+}
+
+/* Footer */
+.footer-glass {
+    background: rgba(15, 23, 42, 0.9);
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.info-item a, .info-item span {
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .display-1 { font-size: 3.5rem; }
+    .hero-section { text-align: center; }
+    .d-flex.gap-3 { justify-content: center; }
+    .profile-img { width: 280px; }
+}
+
+
+
+/* =========================
+   SNOW EFFECT - FULL WEBSITE
+========================= */
+
+#snow-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 99999;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    opacity: 0.6;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.4);
+
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+
+    0% {
+        transform: translate3d(0, -20px, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(30px, 50vh, 0) rotate(180deg);
+    }
+
+    100% {
+        transform: translate3d(-30px, 110vh, 0) rotate(360deg);
+    }
+
+}
